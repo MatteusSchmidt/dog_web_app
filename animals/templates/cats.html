@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- This HTML file references styles.css to be passed as a template to the views file to be rendered as /animals/cats/ -->
+<html lang="en">
+<head>
+    {% load static %}
+    <style>@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>This is a website about Cats</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="{% static 'images/mad_logo_black.png' %}" id="logo_light" class="logo" alt="Brand logo: Matteus and Dawgs, in light mode">
+            <img src="{% static 'images/mad_logo.png' %}" id="logo_dark" class="logo" alt="Brand logo: Matteus and Dawgs, in dark mode">
+
+            <nav>
+                <ul>
+                    <li><a href="{% url 'default_dog' %}">Dogs</a></li>
+                    <li><a href="{% url 'default_cat' %}">Cats</a></li>
+                </ul>
+            </nav>
+            <img src="{% static 'images/3.png' %}" class="menu_icon" id="menu_light" alt="dropdown menu selector light mode">
+            <img src="{% static 'images/4.png' %}" class="menu_icon" id="menu_dark" alt="dropdown menu selector dark mode">
+
+        </div>
+
+        <div class="row_1">
+            <div class="column_1">
+                <div class="dropdown">
+                    <button class="dropbtn">{{ cat.name }}</button>
+                    <div class="dropdown_menu">
+                        {% for item in names_list %}
+                            <a href="{% url 'cat_detail' item %}">{{ item }}</a>
+                        {% endfor %}
+
+                        <a href="#" class="permanent-link">Filter By:</a>
+
+                    </div>
+                </div>
+
+                <div class="frame"><img src='{{ cat.image_url }}' alt="picture of a cat"></div>
+
+                <div class="copy" id="description">
+                    <span class="span_1">Description:</span>
+                    {% if cat.description != "N/A" %}
+                        <span class="span_2">{{ cat.description }}</span>
+                    {% else %}
+                        <span class="span_2">There is no description available, please refer to the links below.</span>
+                    {% endif %}
+                </div>
+                <div class="copy" id="facts">
+                    <h1 class="span_1">Facts</h1>
+                    <div class="span_2" id="facts_content">
+                        {% if cat.weight.imperial != "N/A" and cat.weight.metric != "N/A" %}Weight: {{ cat.weight.imperial }}lbs., {{ cat.weight.metric }}kg.<br><br/>{% endif %}
+                        {% if cat.temperament != "N/A" %}Temperament: {{ cat.temperament }}<br><br/>{% endif %}
+                        {% if cat.origin != "N/A" %}Origin: {{ cat.origin }}<br><br/>{% endif %}
+                        {% if cat.country_codes != "N/A" %}Native Countries: {{ cat.country_codes }}<br><br/>{% endif %}
+                        {% if cat.country_code != "N/A" %}Native Country: {{ cat.country_code }}<br><br/>{% endif %}
+                        {% if cat.life_span != "N/A" %}Life Span: {{ cat.life_span }} years{% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="column_2">
+                <h1 class="span_1" id="ratings">Breed Characteristics</h1>
+
+                {% for item in cat.stars %}
+                    <div class="ratings_container">
+                        <div class="span_2" id="ratings_content">
+                            {{ item.0 }}
+                        </div>
+                        <div class="stars">
+                            {% for left_value in cat.left %}
+                                {% if forloop.counter <= item.1 %}
+                                    <div id="star_filled">&starf;</div>
+                                {% else %}
+                                    <div id="empty_star">&star;</div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="copy" id="links_break">
+                    <span class="span_1">More Information</span>
+                    <h3 class="span_2" id="links">
+                        {% if cat.cfa_url != "N/A" %} <a href="{{cat.cfa_url}}" target="_blank">CFA</a> <br><br/> {% endif %}
+                        {% if cat.vetstreet_url != "N/A" %} <a href="{{cat.vetstreet_url}}" target="_blank">Vetstreet</a> <br><br/> {% endif %}
+                        {% if cat.vcahospitals_url != "N/A" %} <a href="{{cat.vcahospitals_url}}" target="_blank">VCAHospitals</a> <br><br/> {% endif %}
+                        {% if cat.wikipedia_url != "N/A" %} <a href="{{cat.wikipedia_url}}" target="_blank">Wikipedia</a> {% endif %}
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="social_images">
+            <a href="https://github.com/MatteusSchmidt" target="_blank">
+                <img class="light_mode_social" src="{% static 'images/github.png' %}" alt="Github link Image in light mode">
+                <img class="dark_mode_social" src="{% static 'images/github_white.png' %}" alt="Github link Image in dark mode">
+            </a>
+            <a href="https://www.linkedin.com/in/matteus-schmidt/" target="_blank">
+                <img class="light_mode_social" src="{% static 'images/LinkedIn.png' %}" style="margin-left: 30px" alt="linkedIn link image in light mode">
+                <img class="dark_mode_social" src="{% static 'images/LinkedIn_white.png' %}" style="margin-left: 30px" alt="linkedIn link image in dark mode">
+            </a>
+        </div>
+    </div>
+</body>
+</html>

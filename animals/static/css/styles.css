@@ -1,0 +1,466 @@
+/* This CSS file is a static asset which functions to add styles to the animals app templates */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body {
+    background: radial-gradient(ellipse at 25% 30%, #ffefef, white);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #ff914d;
+}
+
+a:hover{ text-decoration: underline; }
+
+a:visited{ color: #4ac1f7; }
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.navbar {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    width: 120px;
+    top: 0;
+    left: -30px;
+    cursor: pointer;
+    margin: 30px 0;
+    position: absolute;
+}
+
+.menu_icon {
+    width: 35px;
+    cursor: pointer;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-family: 'Shrikhand', serif;
+}
+
+li a:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: #ff914d;
+}
+
+li a:visited { color: #000; }
+
+li a:visited:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: #ff914d;
+}
+
+.row_1 {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0 100px;
+    position: relative;
+}
+
+.column_1 {
+    flex-basis: 45%;
+    position: relative;
+    margin-left: 30px;
+    min-width: 450px;
+}
+
+.column_2 {
+    position: relative;
+    flex-basis: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-left: 50px;
+}
+
+.frame {
+    position: relative;
+    display: inline-block;
+    flex-basis: auto;
+}
+
+.frame::before {
+    content: '';
+    position: absolute;
+    top: -15px; right: -15px; bottom: -15px; left: -300px;
+    background: linear-gradient(#ff914d ,#f5dd5d);
+    border-radius: 0 20px 20px 0;
+    z-index: -1;
+}
+
+#dogs_facts {
+
+}
+
+.frame img {
+    display: block; /* Removes default spacing around images */
+    width: 95%;
+    border-radius: 20px
+}
+
+.span_1 {
+    color: black;
+    font-size: 26px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+
+#links_break { margin-top: 50px; }
+
+.span_2 {
+    color: black;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+
+#ratings {
+    margin-left: 30px;
+}
+
+#ratings_content {
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+#facts_content {
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+#links {
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+.copy {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#facts {
+    margin-left: 30px;
+    margin-top: 60px;
+}
+
+#dog_facts1 {
+    margin-left: 30px;
+    margin-top: 60px;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.ratings_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stars {
+    text-align: right;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top:10px;
+    font-size: 30px;
+}
+
+#star_filled {
+    color: gold;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #030303;
+    color: white;
+    padding: 16px;
+    font-size: 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Shrikhand', serif;
+}
+
+.dropbtn:after {
+    content: "\25BC";
+    display: inline-block;
+    margin-left: 20px;
+    color: white;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 50px;
+    margin-bottom: 40px
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown_menu {
+    border-radius: 2px;
+    overflow-y: scroll;
+    max-height: 213px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    padding-bottom: 60px;
+}
+
+/* Links inside the dropdown */
+.dropdown_menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Raleway', sans-serif;
+}
+
+.dropdown_menu a:hover {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+.dropdown:hover .dropdown_menu { display: block; }
+
+.dropdown:hover .dropbtn { background-color: #ff914d; }
+
+.social_images img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.social_images {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.light_mode_social { display: inline; }
+
+.dark_mode_social { display: none; }
+
+#logo_light { display: block; }
+
+#logo_dark { display: none; }
+
+#menu_light { display: block; }
+
+#menu_dark { display: none; }
+
+@media only screen and (max-width:768px) {
+    body {
+        background: radial-gradient(ellipse at 15% 20%, antiquewhite, white);
+    }
+
+
+    .row_1 {
+        flex-direction: column;
+        margin: 0 0 0 0;
+    }
+
+    .ratings_container { margin-left: 5px; }
+
+    .span_2 { margin: 10px 0 0 0; }
+
+    .span_1 { margin: 0 0 0 0; }
+
+    #ratings { margin: 0 0 0 0; }
+
+    #ratings_content{ margin: 10px 0 0 0;}
+
+    #facts_content{ margin: 0 0 0 0 }
+
+    #facts{ margin: 30px 0 0 0 }
+
+    .column_1 {
+        flex-basis: 100%;
+        min-width: 0;
+        margin: 0 0 0 0;
+    }
+
+    .column_2 {
+        flex-basis: 100%;
+        margin-top: 30px;
+        margin-left: 0;
+    }
+
+    .dropdown { justify-content: left; }
+
+    #right_page {
+        margin-left: 5px;
+        margin-top: 30px;
+    }
+
+    .frame img {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #facts_content {
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    #links {
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    .copy { margin: 0 0 0 0; }
+
+    #description { margin-top: 40px; }
+
+    .stars { margin: 0 0 0 0 }
+
+    #links_break {margin: 30px 0 50px 0 }
+
+    .logo {
+        width: 90px;
+        top: 0;
+        left: -15px;
+        cursor: pointer;
+        margin: 30px 0;
+        position: absolute;
+    }
+    #dogs_facts { margin-top: 0; }
+
+    #dog_facts1 { margin: 0 0 0 0 }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: radial-gradient(ellipse at 25% 30%, rgba(10, 10, 10, 0.9), #0a0a0a);
+    }
+
+    img { filter: brightness(.8) contrast(1.2); }
+
+    li a { color: #E1D9D1; }
+
+    li a:visited { color: #E1D9D1; }
+
+    .span_1 { color: #E1D9D1; }
+
+    .span_2 { color: #E1D9D1; }
+
+    h1 { color: #E1D9D1; }
+
+    p { color: #E1D9D1; }
+
+    .dropbtn {
+        color: black;
+        background-color: #E1D9D1;
+    }
+
+    .dropbtn:after { color: #0a0a0a; }
+
+    .dropdown_menu {
+        background: #0a0a0a;
+        color: #E1D9D1;
+        z-index: 1;
+
+    }
+
+    .dropdown_menu a { color: #E1D9D1; }
+
+    .dropdown_menu a:hover {
+        color: #4f4f4f;
+        font-weight: bold;
+    }
+
+    .dropdown:hover { filter: brightness(.8) contrast(1.2); }
+
+    .frame { filter: brightness(.8) contrast(1.2); z-index: -1 }
+
+    .frame:before { z-index: -1 }
+
+    .stars { filter: brightness(.8) contrast(1.2); }
+
+    #empty_star { color: #E1D9D1; }
+
+    #links { filter: brightness(.8) contrast(1.2); }
+
+    .social_images .light_mode_social { display: none; }
+
+    .social_images .dark_mode_social { display: inline; }
+
+    #logo_light { display: none; }
+
+    #logo_dark {
+        display: block;
+        filter: brightness(.8) contrast(1.2);
+    }
+
+    #menu_light { display: none; }
+
+    #menu_dark {
+        display: block;
+        filter: brightness(.8) contrast(1.2);
+    }
+
+    ::-webkit-scrollbar-track {
+        background: black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #E1D9D1;
+        border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: white;
+    }
+}

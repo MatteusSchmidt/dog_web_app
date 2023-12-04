@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- This HTML file references styles.css to be passed as a template to the views file to be rendered as /animals/dogs/ -->
+<html lang="en">
+<head>
+    {% load static %}
+    <style>@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>This is a website about Dogs</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="{% static 'images/mad_logo_black.png' %}" id="logo_light" class="logo" alt="Brand logo: Matteus and Dawgs, in light mode">
+            <img src="{% static 'images/mad_logo.png' %}" id="logo_dark" class="logo" alt="Brand logo: Matteus and Dawgs, in dark mode">
+
+            <nav>
+                <ul>
+                    <li><a href="{% url 'default_dog' %}">Dogs</a></li>
+                    <li><a href="{% url 'default_cat' %}">Cats</a></li>
+                </ul>
+            </nav>
+
+            <img src="{% static 'images/3.png' %}" class="menu_icon" id="menu_light" alt="dropdown menu selector light mode">
+            <img src="{% static 'images/4.png' %}" class="menu_icon" id="menu_dark" alt="dropdown menu selector dark mode">
+        </div>
+
+        <div class="row_1">
+            <div class="column_1">
+                <div class="dropdown">
+                    <button class="dropbtn">{{ dog.name }}</button>
+                    <div class="dropdown_menu">
+                        {% for item in names_list %}
+                            <a href="{% url 'dog_detail' item %}">{{item}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% if image != "N/A" %}
+                    <div class="frame"><img src='{{ dog.image.url }}' style="max-width: 95%; height: auto; border-radius: 10px" alt="Picture of a dog"></div>
+                {% else %}
+                    <div class="frame"><img src='https://m.media-amazon.com/images/I/41Xcn9Q1f-L.jpg' alt="Image Not Found"></div>
+                {% endif %}
+
+                <div class="copy" id="description">
+                    <span class="span_1">Description:</span>
+                    {% if dog.description != "N/A" %}
+                        <span class="span_2">{{ dog.description }}</span>
+                    {% else %}
+                        <span class="span_2">There is no description available. :/ </span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="column_2" style="align-items: center">
+                <div class="copy" id="dog_facts1">
+                    <h1 class="span_1" id="dogs_facts">Breed Facts</h1>
+                    <div class="span_2" id="facts_content">
+                        {% if dog.weight.imperial != "N/A" and dog.weight.metric != "N/A" %}Weight (lbs, Kg): {{ dog.weight.imperial }}, {{ dog.weight.metric }}<br><br/>{% endif %}
+                        {% if dog.height.imperial != "N/A" and dog.height.metric != "N/A" %}Height (in, cm): {{ dog.height.imperial }}, {{ dog.height.metric }}<br><br/>{% endif %}
+                        {% if dog.country_code != "N/A" %}Country Code: {{ dog.country_code }}<br><br/>{% endif %}
+                        {% if dog.breed_group != "N/A" %}Breed group: {{ dog.breed_group }}<br><br/>{% endif %}
+                        {% if dog.bred_for != "N/A" %}Bred for: {{ dog.bred_for }}<br><br/>{% endif %}
+                        {% if dog.temperament != "N/A" %}Temperament: {{ dog.temperament }}<br><br/>{% endif %}
+                        {% if dog.life_span != "N/A" %}Life Span: {{ dog.life_span }}<br><br/>{% endif %}
+                        {% if dog.origin != "N/A" %}Origin: {{ dog.origin }}<br><br/>{% endif %}
+                        {% if dog.history != "N/A" %}History: {{ dog.history }}<br><br/>{% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="social_images">
+            <a href="https://github.com/MatteusSchmidt" target="_blank">
+                <img class="light_mode_social" src="{% static 'images/github.png' %}" alt="Github link Image in light mode">
+                <img class="dark_mode_social" src="{% static 'images/github_white.png' %}" alt="Github link Image in dark mode">
+            </a>
+            <a href="https://www.linkedin.com/in/matteus-schmidt/" target="_blank">
+                <img class="light_mode_social" src="{% static 'images/LinkedIn.png' %}" style="margin-left: 30px" alt="linkedIn link image in light mode">
+                <img class="dark_mode_social" src="{% static 'images/LinkedIn_white.png' %}" style="margin-left: 30px" alt="linkedIn link image in dark mode">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
