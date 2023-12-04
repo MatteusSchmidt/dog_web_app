@@ -1,3 +1,26 @@
+/* This CSS file is a static asset which functions to add styles to the animals app templates */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body {
+    background: radial-gradient(ellipse at 25% 30%, #ffefef, white);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -173,6 +196,9 @@ li a:visited:hover {
 #dog_facts1 {
     margin-left: 30px;
     margin-top: 60px;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
 }
 
 .ratings_container {
@@ -231,6 +257,7 @@ li a:visited:hover {
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
+    padding-bottom: 60px;
 }
 
 /* Links inside the dropdown */
@@ -242,6 +269,15 @@ li a:visited:hover {
     font-family: 'Raleway', sans-serif;
 }
 
+.dropdown_menu a:hover {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+.dropdown:hover .dropdown_menu { display: block; }
+
+.dropdown:hover .dropbtn { background-color: #ff914d; }
+
 .social_images img{
     width: 20px;
     height: 20px;
@@ -252,18 +288,6 @@ li a:visited:hover {
     text-align: center;
     margin-bottom: 50px;
 }
-
-/* Change color of dropdown links on hover */
-.dropdown_menu a:hover {
-    background-color: #f1f1f1;
-    font-weight: bold;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown_menu { display: block; }
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn { background-color: #ff914d; }
 
 .light_mode_social { display: inline; }
 
@@ -278,6 +302,11 @@ li a:visited:hover {
 #menu_dark { display: none; }
 
 @media only screen and (max-width:768px) {
+    body {
+        background: radial-gradient(ellipse at 15% 20%, antiquewhite, white);
+    }
+
+
     .row_1 {
         flex-direction: column;
         margin: 0 0 0 0;
@@ -353,7 +382,9 @@ li a:visited:hover {
 }
 
 @media (prefers-color-scheme: dark) {
-    body { background-color: #0A0A0A; }
+    body {
+        background: radial-gradient(ellipse at 25% 30%, rgba(10, 10, 10, 0.9), #0a0a0a);
+    }
 
     img { filter: brightness(.8) contrast(1.2); }
 
@@ -374,11 +405,13 @@ li a:visited:hover {
         background-color: #E1D9D1;
     }
 
-    .dropbtn:after { color: black; }
+    .dropbtn:after { color: #0a0a0a; }
 
     .dropdown_menu {
-        background: black;
+        background: #0a0a0a;
         color: #E1D9D1;
+        z-index: 1;
+
     }
 
     .dropdown_menu a { color: #E1D9D1; }
@@ -390,7 +423,9 @@ li a:visited:hover {
 
     .dropdown:hover { filter: brightness(.8) contrast(1.2); }
 
-    .frame { filter: brightness(.8) contrast(1.2); }
+    .frame { filter: brightness(.8) contrast(1.2); z-index: -1 }
+
+    .frame:before { z-index: -1 }
 
     .stars { filter: brightness(.8) contrast(1.2); }
 
@@ -414,5 +449,18 @@ li a:visited:hover {
     #menu_dark {
         display: block;
         filter: brightness(.8) contrast(1.2);
+    }
+
+    ::-webkit-scrollbar-track {
+        background: black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #E1D9D1;
+        border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: white;
     }
 }
