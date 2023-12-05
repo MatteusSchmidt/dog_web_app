@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <style>@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');</style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,15 +14,15 @@
 <body>
     <div class="container">
         <div class="navbar" id="homepage_nav">
-            <img src="{% static 'images/mad_logo_black.png' %}" id="logo_light" class="logo" alt="Brand logo: Matteus and Dawgs, in light mode">
-            <img src="{% static 'images/mad_logo.png' %}" id="logo_dark" class="logo" alt="Brand logo: Matteus and Dawgs, in dark mode">
+            <a href="{% url 'Home' %}"><img src="{% static 'images/mad_logo_black.png' %}" id="logo_light" class="logo" alt="Brand logo: Matteus and Dawgs, in light mode"></a>
+            <a href="{% url 'Home' %}"><img src="{% static 'images/mad_logo.png' %}" id="logo_dark" class="logo" alt="Brand logo: Matteus and Dawgs, in dark mode"></a>
 
             <nav>
                 <ul>
                     <li><a class="homepage_lia">Project #1</a></li>
                     <li><a class="homepage_lia">Project #2</a></li>
                     <li><a class="homepage_lia">Project #3</a></li>
-                    <li><a href="{% url 'default_cat' %}" class="homepage_lia">Animals DB</a></li>
+                    <li><a class="homepage_lia" href="{% url 'default_cat' %}">Animals DB</a></li>
                 </ul>
             </nav>
         </div>

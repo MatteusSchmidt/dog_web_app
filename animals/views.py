@@ -6,6 +6,10 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 
+def Home(request):
+    return render(request, 'homepage.html')
+
+
 # views which return cats and dogs
 def cats_request(request, name='Savannah'):
     cat = get_object_or_404(CatModel, name=name)

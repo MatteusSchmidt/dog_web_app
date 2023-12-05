@@ -16,8 +16,8 @@
 <body>
     <div class="container">
         <div class="navbar">
-            <img src="{% static 'images/mad_logo_black.png' %}" id="logo_light" class="logo" alt="Brand logo: Matteus and Dawgs, in light mode">
-            <img src="{% static 'images/mad_logo.png' %}" id="logo_dark" class="logo" alt="Brand logo: Matteus and Dawgs, in dark mode">
+            <a href="{% url 'Home' %}"><img src="{% static 'images/mad_logo_black.png' %}" id="logo_light" class="logo" alt="Brand logo: Matteus and Dawgs, in light mode"></a>
+            <a href="{% url 'Home' %}"><img src="{% static 'images/mad_logo.png' %}" id="logo_dark" class="logo" alt="Brand logo: Matteus and Dawgs, in dark mode"></a>
 
             <nav>
                 <ul>
