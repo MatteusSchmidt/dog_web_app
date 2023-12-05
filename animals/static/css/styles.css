@@ -53,6 +53,18 @@ a:visited{ color: #4ac1f7; }
     position: relative;
 }
 
+#homepage_nav.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0; right: -300px; bottom: 0; left: -300px;
+    background-color: #ff914d;
+    z-index: -1;
+}
+
+.homepage_lia:hover {
+  color: white;
+}
+
 .logo {
     width: 120px;
     top: 0;
@@ -301,9 +313,16 @@ li a:visited:hover {
 
 #menu_dark { display: none; }
 
+svg{
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+  display:inline-block;
+}
+
 @media only screen and (max-width:768px) {
     body {
-        background: radial-gradient(ellipse at 15% 20%, antiquewhite, white);
+        background: radial-gradient(ellipse at 15% 20%, #ece7e7, #ececec);
     }
 
 
@@ -464,3 +483,4 @@ li a:visited:hover {
         background: white;
     }
 }
+
