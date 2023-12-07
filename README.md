@@ -11,9 +11,13 @@ whatupdawg.co, whatupdawg.co/animals/cats, whatupdawg.co/animals/dogs, whatupdaw
 First `pip install requirements.txt` to download the necessary pipenv required to run the project.
 
 ### Settings file:
-  To run the web app on a local host, make sure to: change `ALLOWED_HOSTS` to `'*'`, or `'local.host'` and remember to add the local hosting port number in the array of allowed hosts.  
+To run the web app on a local host, make sure to: change `ALLOWED_HOSTS` to `'*'`, or `'local.host'` and remember to add the local hosting port number in the array of allowed hosts.  
 
-Set:
+Also Keep in mind that you must make your own SECRET_KEY - a 50 character long random string - as the production key is gitignored as a .env. 
+
+Do so by running `from django.management.utils import get_random_secret_key()` followed by `print(get_random_secret_key())` in your terminal.
+
+To `python manage.py runserver` and host the site locally, Set:
 ```
     SESSION_COOKIE_SECURE = False
     CSRF_COOKIE_SECURE = False
@@ -24,12 +28,14 @@ Set:
     SECURE_REFERRER_POLICY = "no-referrer"
 ```
   
-### the power of Models.py // SQLite db:
+### The power of Models.py // SQLite db:
 
 Each class represents a single animal, primary key being "name" i.e. calls to cat model with a
 specified structure. 
 
-Under /animals/management/commands, you will find two files labeled as import_commands, each of which are classes which inherit the BaseCommand class offered by Django to create a command to import a cleanly formatted JSON which has items which fill each model in the SQLite db. If you'd like to use the data in other methods, use the predefined serialized apis to either create ajax calls to filter cats by data with integer values, or to export your data with a 'GET'. 
+Under /animals/management/commands, you will find two files labeled as import_commands, each of which are classes which inherit the BaseCommand class offered by Django to create a command to import a cleanly formatted JSON which has items which fill each model in the SQLite db. 
+
+If you'd like to use the data for other purposes, use the predefined serialized apis to either create ajax calls to filter cats by data with integer values, or to export your data with a 'GET'. These functions rely on the imported 'rest_framework' application. 
     
 ### import_command files:
 
