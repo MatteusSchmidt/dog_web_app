@@ -18,7 +18,7 @@
 }
 
 body {
-    background: radial-gradient(ellipse at 25% 30%, #ffefef, white);
+    background: radial-gradient(ellipse at 25% 30%, #e7e7e7, #f6f6f6);
 }
 
 * {
@@ -62,7 +62,11 @@ a:visited{ color: #4ac1f7; }
 }
 
 .homepage_lia:hover {
-  color: white;
+    color: white;
+}
+
+.homepage_lia:visited:hover {
+    color: white;
 }
 
 .logo {
@@ -132,6 +136,7 @@ li a:visited:hover {
     flex-direction: column;
     justify-content: left;
     margin-left: 50px;
+    min-width: 350px;
 }
 
 .frame {
@@ -325,7 +330,6 @@ svg{
         background: radial-gradient(ellipse at 15% 20%, #ece7e7, #ececec);
     }
 
-
     .row_1 {
         flex-direction: column;
         margin: 0 0 0 0;
@@ -398,6 +402,10 @@ svg{
     #dogs_facts { margin-top: 0; }
 
     #dog_facts1 { margin: 0 0 0 0 }
+
+    #dog_breed_facts {
+        min-height: 470px;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -481,6 +489,10 @@ svg{
 
     ::-webkit-scrollbar-thumb:hover {
         background: white;
+    }
+
+    .dark_mode_hands {
+        stroke: white;
     }
 }
 

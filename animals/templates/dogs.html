@@ -14,10 +14,10 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="height: auto">
         <div class="navbar">
-            <a href="{% url 'Home' %}"><img src="{% static 'images/mad_logo_black.png' %}" id="logo_light" class="logo" alt="Brand logo: Matteus and Dawgs, in light mode"></a>
-            <a href="{% url 'Home' %}"><img src="{% static 'images/mad_logo.png' %}" id="logo_dark" class="logo" alt="Brand logo: Matteus and Dawgs, in dark mode"></a>
+            <a href="{% url 'home' %}"><img src="{% static 'images/mad_logo_black.png' %}" id="logo_light" class="logo" alt="Brand logo: Matteus and Dawgs, in light mode"></a>
+            <a href="{% url 'home' %}"><img src="{% static 'images/mad_logo.png' %}" id="logo_dark" class="logo" alt="Brand logo: Matteus and Dawgs, in dark mode"></a>
 
             <nav>
                 <ul>
@@ -56,7 +56,7 @@
                 </div>
             </div>
 
-            <div class="column_2" style="align-items: center">
+            <div class="column_2" id="dog_breed_facts">
                 <div class="copy" id="dog_facts1">
                     <h1 class="span_1" id="dogs_facts">Breed Facts</h1>
                     <div class="span_2" id="facts_content">
@@ -75,7 +75,7 @@
         </div>
 
         <div class="social_images">
-            <a href="https://github.com/MatteusSchmidt" target="_blank">
+            <a href="https://github.com/MatteusSchmidt/dog_web_app" target="_blank">
                 <img class="light_mode_social" src="{% static 'images/github.png' %}" alt="Github link Image in light mode">
                 <img class="dark_mode_social" src="{% static 'images/github_white.png' %}" alt="Github link Image in dark mode">
             </a>

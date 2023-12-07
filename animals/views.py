@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, JsonResponse
 from .models import CatModel, DogModel
 from .serializers import DogModelSerializer, CatModelSerializer
 from rest_framework.decorators import api_view
@@ -12,12 +11,14 @@ def Home(request):
 
 # views which return cats and dogs
 def cats_request(request, name='Savannah'):
+    name = name.replace('%20', ' ')
     cat = get_object_or_404(CatModel, name=name)
     all_cats = CatModel.objects.all().values_list('name', flat=True)
     return render(request, 'cats.html', {'cat': cat, 'names_list': all_cats})
 
 
 def dogs_request(request, name='Basset Hound'):
+    name = name.replace('%20', ' ')
     dog = get_object_or_404(DogModel, name=name)
     all_dogs = DogModel.objects.all().values_list('name', flat=True)
     return render(request, 'dogs.html', {'dog': dog, 'names_list': all_dogs})
@@ -26,7 +27,7 @@ def dogs_request(request, name='Basset Hound'):
 # API GET functions to return serialized data
 @api_view(['GET'])
 def get_dogs(request):
-    name = request.query_params.get('name')
+    # name = request.query_params.get('name')
     dogs = DogModel.objects.all()
     if dogs:
         serialized = DogModelSerializer(dogs, many=True)
