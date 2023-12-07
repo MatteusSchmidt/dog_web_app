@@ -31,12 +31,11 @@ environ.Env.read_env('API_KEY')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    # 'www.whatupdawg.co',
-    # 'whatupdawg.co'
-    '*'
+    'www.whatupdawg.co',
+    'whatupdawg.co'
 ]
 
 
@@ -61,19 +60,19 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = True
 
-CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = True
 
-SECURE_HSTS_SECONDS = 0
+SECURE_HSTS_SECONDS = 315360000
 
-SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
-SECURE_HSTS_PRELOAD = False
+SECURE_HSTS_PRELOAD = True
 
-SECURE_SSL_REDIRECT = False
+SECURE_SSL_REDIRECT = True
 
-SECURE_REFERER_POLICY = "no-referrer"
+SECURE_REFERRER_POLICY = "strict-origin"
 
 
 ROOT_URLCONF = 'dog_data.urls'
